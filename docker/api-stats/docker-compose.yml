@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+    app:
+        image: traincat/api-stats:v1.0.2
+        container_name: api-stats
+        external_links:
+            - mysql
+        labels:
+            - "traefik.backend=api-stats"
+            - "traefik.frontend.rule=Host:api-stats.train.cat"
+            - "traefik.port=8080"
+            - "traefik.docker.network=reverse-proxy"
+            - "traefik.enable=true"
+        volumes:
+            - "./config/app/config.json:/config.json:ro"
+        networks:
+            - mysql
+            - reverse-proxy
+
+networks:
+    mysql:
+        external: true
+    reverse-proxy:
+        external: true
+

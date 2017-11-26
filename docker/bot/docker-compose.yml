@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+    app:
+        image: traincat/bot:v0.2.2
+        container_name: bot
+        labels:
+            - "traefik.backend=bot"
+            - "traefik.frontend.rule=Host:bot.train.cat"
+            - "traefik.port=9999"
+            - "traefik.docker.network=reverse-proxy"
+            - "traefik.enable=true"
+        volumes:
+                - "./config/app/config.json:/config.json:ro"
+        networks:
+            - reverse-proxy
+
+networks:
+    reverse-proxy:
+        external: true
+

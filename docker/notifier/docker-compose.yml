@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+    app:
+        image: traincat/notifier:v1.0.1
+        container_name: notifier
+        labels:
+            - "traefik.backend=notifier"
+            - "traefik.frontend.rule=Host:notifier.train.cat"
+            - "traefik.port=8080"
+            - "traefik.docker.network=reverse-proxy"
+            - "traefik.enable=true"
+        volumes:
+            - "./config/app/config.json:/config.json:ro"
+        networks:
+            - reverse-proxy
+
+networks:
+    reverse-proxy:
+        external: true
+

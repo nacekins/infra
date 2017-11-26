@@ -1,0 +1,18 @@
+{
+    "http": {
+        "port": 8080
+    },
+    "pubsub": {
+        "token": "---"
+    },
+    "api-train": {
+        "host": "https://api.train.cat",
+        "username": "---",
+        "password": "---"
+    },
+    "bot": {
+        "webhook": "---"
+    },
+    "debug": false
+}
+

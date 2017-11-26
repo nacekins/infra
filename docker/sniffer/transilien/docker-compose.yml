@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+    sniffer-transilien:
+        image: traincat/sniffer-transilien:v1.0.3
+        container_name: sniffer-transilien
+        external_links:
+            - redis-sniffer
+        volumes:
+                - "./config:/config:ro"
+        networks:
+            - redis-sniffer
+
+networks:
+    redis-sniffer:
+        external: true
+

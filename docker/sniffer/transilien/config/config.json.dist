@@ -1,0 +1,43 @@
+{
+    "redis": {
+        "servers": {
+            "redis-00": "redis-sniffer:6379"
+        },
+        "flush_all_on_start": false
+    },
+    "elasticsearch": {
+        "host": "-----",
+        "basic_auth": false,
+        "username": "-",
+        "password": "-"
+    },
+    "sncf_api": {
+        "timezone": "Europe/Paris",
+        "host": "http://api.transilien.com",
+        "username": "-----",
+        "password": "-----",
+        "headers": {
+            "content_type": "application/vnd.sncf.transilien.od.depart+xml;vers=1.0",
+            "accept": "application/vnd.sncf.transilien.od.depart+xml;vers=1.0"
+        }
+    },
+    "api-train": {
+        "host": "https://api.train.cat",
+        "username": "-----",
+        "password": "----"
+    },
+    "sniffer": {
+        "ban": {
+            "no_passage": 3
+        },
+        "max_call_per_wave": 20,
+        "second_between_call": 62,
+        "log_level": 3
+    },
+    "pubsub": {
+        "project": "---",
+        "topic": "---",
+        "credentials": "/config/credentials.json"
+    }
+}
+

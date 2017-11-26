@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+    traefik:
+        image: traefik:1.4-alpine
+        container_name: traefik
+        command: -c /traefik.toml
+        ports:
+            - "80:80"
+            - "443:443"
+            - "8080:8080"
+        volumes:
+            - "/var/run/docker.sock:/var/run/docker.sock:ro"
+            - "./config/traefik/traefik.toml:/traefik.toml:ro"
+            - "./data/traefik/letsencrypt.json:/letsencrypt.json"
+        networks:
+            - reverse-proxy
+
+networks:
+    reverse-proxy:
+        external: true
+
