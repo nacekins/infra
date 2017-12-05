@@ -3,15 +3,15 @@ version: '3'
 services:
     redis:
         image: redis:4-alpine
-        container_name: redis-sniffer
+        container_name: redis-watcher
         ports:
             - "127.0.0.1:6379:6379"
         volumes:
             - "./data/redis:/data"
         networks:
-            - redis-sniffer
+            - redis-watcher
 
 networks:
-    redis-sniffer:
+    redis-watcher:
         external: true
 

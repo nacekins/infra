@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+    watcher-transilien:
+        image: traincat/watcher-transilien:v2.0.1
+        container_name: watcher-transilien
+        external_links:
+            - redis-watcher
+        volumes:
+                - "./config:/config:ro"
+        networks:
+            - redis-watcher
+
+networks:
+    redis-watcher:
+        external: true
+
