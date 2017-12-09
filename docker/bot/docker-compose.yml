@@ -2,7 +2,7 @@ version: '3'
 
 services:
     app:
-        image: traincat/bot:v0.2.2
+        image: traincat/bot:v0.5.0
         container_name: bot
         labels:
             - "traefik.backend=bot"
