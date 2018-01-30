@@ -2,7 +2,7 @@ version: '2'
 
 services:
     watcher-transilien:
-        image: traincat/watcher-transilien:v2.1.0
+        image: traincat/watcher-transilien:v2.2.0
         container_name: watcher-transilien
         external_links:
             - redis-watcher
